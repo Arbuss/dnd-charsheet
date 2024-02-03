@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.realm)
 }
 
 android {
@@ -24,18 +25,21 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-
     implementation(libs.core.ktx)
+    implementation(libs.kotlinx.coroutines)
+    implementation(libs.realm.base)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
