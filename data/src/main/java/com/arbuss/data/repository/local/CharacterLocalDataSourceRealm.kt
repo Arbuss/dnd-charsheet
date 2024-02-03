@@ -7,7 +7,7 @@ import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.query.max
 
-internal class LocalDataSourceRealm : LocalDataSource {
+internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
     private val config = RealmConfiguration.create(schema = setOf(CharacterRealm::class))
     private val realm: Realm = Realm.open(config)
 

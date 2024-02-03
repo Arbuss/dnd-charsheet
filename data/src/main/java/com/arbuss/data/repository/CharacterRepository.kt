@@ -1,8 +1,8 @@
-package com.arbuss.data.repository.local
+package com.arbuss.data.repository
 
 import com.arbuss.data.model.Character
 
-internal interface LocalDataSource {
+interface CharacterRepository {
     fun getAllCharacters(): List<Character>
 
     fun addCharacter(character: Character)

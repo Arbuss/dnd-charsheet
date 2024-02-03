@@ -1,11 +1,12 @@
-package com.arbuss.data
+package com.arbuss.data.repository
 
 import com.arbuss.data.model.Character
-import com.arbuss.data.repository.local.LocalDataSource
-import com.arbuss.data.repository.local.LocalDataSourceRealm
+import com.arbuss.data.repository.local.CharacterLocalDataSource
 
-class CharacterRepositoryImpl : CharacterRepository {
-    private val localDataSource: LocalDataSource = LocalDataSourceRealm()
+internal class CharacterRepositoryImpl(
+    private val localDataSource: CharacterLocalDataSource
+) : CharacterRepository {
+
     override fun getAllCharacters(): List<Character> {
         return localDataSource.getAllCharacters()
     }
