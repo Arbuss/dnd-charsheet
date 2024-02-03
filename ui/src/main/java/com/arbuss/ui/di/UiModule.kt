@@ -1,10 +1,17 @@
 package com.arbuss.ui.di
 
 import com.arbuss.data.repository.CampaignRepository
-import com.arbuss.ui.main.MainScreenViewModel
+import com.arbuss.ui.navigation.NavigationViewModel
+import com.arbuss.ui.navigation.Router
+import com.arbuss.ui.navigation.RouterImpl
+import com.arbuss.ui.screen.campaign.CampaignScreenViewModel
+import com.arbuss.ui.screen.main.MainScreenViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val uiModule = module {
-    viewModel { MainScreenViewModel(get<CampaignRepository>()) }
+    single<Router> { RouterImpl() }
+    viewModel { NavigationViewModel(get<Router>()) }
+    viewModel { MainScreenViewModel(get<Router>()) }
+    viewModel { CampaignScreenViewModel(get<CampaignRepository>(), get<Router>()) }
 }
