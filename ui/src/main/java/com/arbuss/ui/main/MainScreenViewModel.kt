@@ -22,7 +22,7 @@ class MainScreenViewModel(
 
     private fun initCampaignList() {
         viewModelScope.launch {
-            _campaignList.emit(campaignRepository.getAllCampaign())
+            _campaignList.emit(campaignRepository.getAll())
         }
     }
 }

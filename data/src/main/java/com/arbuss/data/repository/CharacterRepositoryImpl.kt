@@ -7,23 +7,23 @@ internal class CharacterRepositoryImpl(
     private val localDataSource: CharacterLocalDataSource
 ) : CharacterRepository {
 
-    override fun getAllCharacters(): List<Character> {
+    override fun getAll(): List<Character> {
         return localDataSource.getAllCharacters()
     }
 
-    override fun addCharacter(character: Character) {
-        localDataSource.addCharacter(character)
+    override fun add(item: Character) {
+        localDataSource.addCharacter(item)
     }
 
-    override fun updateCharacter(character: Character) {
-        localDataSource.updateCharacter(character)
+    override fun update(item: Character) {
+        localDataSource.updateCharacter(item)
     }
 
-    override fun deleteCharacter(character: Character) {
-        localDataSource.deleteCharacter(character)
+    override fun delete(item: Character) {
+        localDataSource.deleteCharacter(item)
     }
 
-    override fun deleteCharacter(id: Int) {
+    override fun delete(id: Int) {
         localDataSource.deleteCharacter(id)
     }
 }

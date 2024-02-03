@@ -7,23 +7,23 @@ internal class CampaignRepositoryImpl(
     private val localDataSource: CampaignLocalDataSource
 ) : CampaignRepository {
 
-    override fun getAllCampaign(): List<Campaign> {
+    override fun getAll(): List<Campaign> {
         return localDataSource.getAllCampaign()
     }
 
-    override fun addCampaign(campaign: Campaign) {
-        localDataSource.addCampaign(campaign)
+    override fun add(item: Campaign) {
+        localDataSource.addCampaign(item)
     }
 
-    override fun updateCampaign(campaign: Campaign) {
-        localDataSource.updateCampaign(campaign)
+    override fun update(item: Campaign) {
+        localDataSource.updateCampaign(item)
     }
 
-    override fun deleteCampaign(campaign: Campaign) {
-        localDataSource.deleteCampaign(campaign)
+    override fun delete(item: Campaign) {
+        localDataSource.deleteCampaign(item)
     }
 
-    override fun deleteCampaign(id: Int) {
+    override fun delete(id: Int) {
         localDataSource.deleteCampaign(id)
     }
 }

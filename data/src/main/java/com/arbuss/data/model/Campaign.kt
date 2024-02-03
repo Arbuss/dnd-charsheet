@@ -1,6 +1,6 @@
 package com.arbuss.data.model
 
 data class Campaign(
-    val id: Int?,
+    override val id: Int?,
     val name: String
-)
+) : DataModel
