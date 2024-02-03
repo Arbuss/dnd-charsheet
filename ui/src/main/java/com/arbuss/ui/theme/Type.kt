@@ -1,4 +1,4 @@
-package com.arbuss.dndsheet.ui.theme
+package com.arbuss.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

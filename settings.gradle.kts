@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "DnD CharSheet"
 include(":app")
- 
+include(":ui")
+include(":data")

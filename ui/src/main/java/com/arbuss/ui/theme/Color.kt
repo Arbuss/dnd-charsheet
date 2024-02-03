@@ -1,4 +1,4 @@
-package com.arbuss.dndsheet.ui.theme
+package com.arbuss.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
