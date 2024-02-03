@@ -1,4 +1,4 @@
-package com.aebuss.dndsheet
+package com.arbuss.dndsheet
 
 import org.junit.Test
 

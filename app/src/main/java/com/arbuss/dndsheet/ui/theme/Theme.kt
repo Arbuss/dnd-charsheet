@@ -1,4 +1,4 @@
-package com.aebuss.dndsheet.ui.theme
+package com.arbuss.dndsheet.ui.theme
 
 import android.app.Activity
 import android.os.Build

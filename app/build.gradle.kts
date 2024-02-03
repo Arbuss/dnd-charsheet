@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.aebuss.dndsheet"
+    namespace = "com.arbuss.dndsheet"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.aebuss.dndsheet"
+        applicationId = "com.arbuss.dndsheet"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
