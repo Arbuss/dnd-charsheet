@@ -4,7 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arbuss.data.model.Character
 import com.arbuss.data.repository.CharacterRepository
+import com.arbuss.ui.R
+import com.arbuss.ui.navigation.Destination
 import com.arbuss.ui.navigation.Router
+import com.arbuss.ui.utils.TopBarButtonSettings
+import com.arbuss.ui.utils.TopBarSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,17 +19,25 @@ class CharactersListViewModel(
     private val router: Router
 ) : ViewModel() {
 
+    val topBarSettings = TopBarSettings(
+        stringId = R.string.character_add_screen_header,
+        leftButton = TopBarButtonSettings(R.drawable.ic_arrow_back) { router.back() },
+        rightButton = TopBarButtonSettings(R.drawable.ic_plus) { router.navigate(Destination.CharacterAddScreen(campaignId)) }
+    )
+
     private val _charactersList: MutableStateFlow<List<Character>> = MutableStateFlow(emptyList())
     val charactersList: StateFlow<List<Character>> = _charactersList.asStateFlow()
 
-    fun init(campaignId: Int) {
+    private var campaignId = -1
+
+    fun updateCharactersList(campaignId: Int) {
+        this.campaignId = campaignId
         viewModelScope.launch {
-            val characters = characterRepository.getAllCharactersFromCampaign(campaignId)
-            _charactersList.emit(characters)
+            _charactersList.emit(characterRepository.getAllCharactersFromCampaign(campaignId))
         }
     }
 
-    fun onClick(id: Int) {
+    fun onClick(characterId: Int) {
 
     }
 }

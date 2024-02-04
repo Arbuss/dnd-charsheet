@@ -5,4 +5,8 @@
 
     <string name="campaigns_add_screen_name_label">Campaign Name</string>
     <string name="campaigns_add_screen_button_save">Save</string>
+
+    <string name="character_add_screen_header">Add Character</string>
+    <string name="character_add_screen_name_label">Character Name</string>
+    <string name="character_add_screen_button_save">Save</string>
 </resources>

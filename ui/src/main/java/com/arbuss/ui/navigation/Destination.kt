@@ -13,5 +13,8 @@ sealed class Destination : Parcelable {
     data class CampaignAddScreen(val uuid: UUID = UUID.randomUUID()) : Destination()
 
     @Parcelize
-    data class CharactersListScreen(val id: Int, val uuid: UUID = UUID.randomUUID()) : Destination()
+    data class CharactersListScreen(val campaignId: Int, val uuid: UUID = UUID.randomUUID()) : Destination()
+
+    @Parcelize
+    data class CharacterAddScreen(val campaignId: Int, val uuid: UUID = UUID.randomUUID()) : Destination()
 }

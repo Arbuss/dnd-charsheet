@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 import com.arbuss.ui.screen.campaign.CampaignScreen
 import com.arbuss.ui.screen.campaign.add.CampaignAddScreen
 import com.arbuss.ui.screen.characters_list.CharactersListScreen
+import com.arbuss.ui.screen.characters_list.add.CharacterAddScreen
 import dev.olshevski.navigation.reimagined.NavBackHandler
 import dev.olshevski.navigation.reimagined.NavHost
 import dev.olshevski.navigation.reimagined.navigate
@@ -45,7 +46,11 @@ fun NavHostScreen(navigationViewModel: NavigationViewModel = koinViewModel()) {
             }
 
             is Destination.CharactersListScreen -> {
-                CharactersListScreen(destination.id)
+                CharactersListScreen(destination.campaignId)
+            }
+
+            is Destination.CharacterAddScreen -> {
+                CharacterAddScreen(destination.campaignId)
             }
         }
     }
