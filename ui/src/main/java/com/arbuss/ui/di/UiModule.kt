@@ -15,7 +15,6 @@ val uiModule = module {
     single<Router> { RouterImpl() }
     viewModel { NavigationViewModel(get<Router>()) }
     viewModel { MainScreenViewModel(get<Router>()) }
-//    viewModel { MainScreenViewModel(get<Router>(), get(), get()) }
     viewModel { CampaignScreenViewModel(get<CampaignRepository>(), get<Router>()) }
     viewModel { CharactersListViewModel(get<CharacterRepository>(), get<Router>()) }
 }
