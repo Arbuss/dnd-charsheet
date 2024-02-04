@@ -50,12 +50,17 @@ internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
         }
     }
 
+    override fun getAllCharactersFromCampaign(campaignId: Int): List<Character> {
+        return realm.query<CharacterRealm>("campaignId = $campaignId").find().toList().map { it.toAppModel() }
+    }
+
 
     private fun generateId(): Int = realm.query<CharacterRealm>().max<Int>("id").find()?.plus(1) ?: 0
 
-    private fun CharacterRealm.toAppModel(): Character = Character(this.id, this.name)
+    private fun CharacterRealm.toAppModel(): Character = Character(this.id, this.name, this.campaignId)
     private fun Character.toRealmModel(id: Int): CharacterRealm = CharacterRealm().apply {
         this.id = id
         this.name = this@toRealmModel.name
+        this.campaignId = this@toRealmModel.campaignId
     }
 }

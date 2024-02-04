@@ -26,4 +26,8 @@ internal class CharacterRepositoryImpl(
     override fun delete(id: Int) {
         localDataSource.deleteCharacter(id)
     }
+
+    override fun getAllCharactersFromCampaign(campaignId: Int): List<Character> {
+        return localDataSource.getAllCharactersFromCampaign(campaignId)
+    }
 }

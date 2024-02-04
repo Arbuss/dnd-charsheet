@@ -24,7 +24,7 @@ class CampaignScreenViewModel(
     }
 
     fun onClick(id: Int) {
-        router.navigate(Destination.CharacterScreen)
+        router.navigate(Destination.CharactersListScreen(id))
     }
 
     private fun initCampaignList() {

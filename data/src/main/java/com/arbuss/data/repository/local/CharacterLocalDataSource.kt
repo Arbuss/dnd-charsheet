@@ -12,4 +12,6 @@ internal interface CharacterLocalDataSource {
     fun deleteCharacter(character: Character)
 
     fun deleteCharacter(id: Int)
+
+    fun getAllCharactersFromCampaign(campaignId: Int): List<Character>
 }

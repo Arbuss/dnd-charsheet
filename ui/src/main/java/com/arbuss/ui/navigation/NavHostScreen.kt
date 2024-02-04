@@ -5,19 +5,29 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.arbuss.ui.screen.campaign.CampaignScreen
-import com.arbuss.ui.screen.character.CharacterScreen
+import com.arbuss.ui.screen.characters_list.CharactersListScreen
 import dev.olshevski.navigation.reimagined.NavBackHandler
 import dev.olshevski.navigation.reimagined.NavHost
 import dev.olshevski.navigation.reimagined.navigate
+import dev.olshevski.navigation.reimagined.pop
 import dev.olshevski.navigation.reimagined.rememberNavController
 
 @Composable
 fun NavHostScreen(navigationViewModel: NavigationViewModel) {
     val navController = rememberNavController<Destination>(startDestination = Destination.CampaignScreen)
     val currentDestination by navigationViewModel.destination.collectAsState()
+    val backAction by navigationViewModel.backAction.collectAsState()
 
-    LaunchedEffect(key1 = currentDestination) {
+    LaunchedEffect(currentDestination) {
         navController.navigate(currentDestination)
+    }
+
+    LaunchedEffect(backAction) {
+        backAction?.let {
+            if (navController.backstack.entries.size > 1) {
+                navController.pop()
+            }
+        }
     }
 
     NavBackHandler(controller = navController)
@@ -28,8 +38,8 @@ fun NavHostScreen(navigationViewModel: NavigationViewModel) {
                 CampaignScreen()
             }
 
-            Destination.CharacterScreen -> {
-                CharacterScreen()
+            is Destination.CharactersListScreen -> {
+                CharactersListScreen(destination.id)
             }
         }
     }

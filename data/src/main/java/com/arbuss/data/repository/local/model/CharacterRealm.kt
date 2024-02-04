@@ -7,4 +7,5 @@ internal class CharacterRealm : RealmObject {
     @PrimaryKey
     var id: Int = -1
     var name: String = ""
+    var campaignId: Int = -1
 }

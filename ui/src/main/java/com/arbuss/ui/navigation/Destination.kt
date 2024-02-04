@@ -9,5 +9,5 @@ sealed class Destination : Parcelable {
     data object CampaignScreen : Destination()
 
     @Parcelize
-    data object CharacterScreen : Destination()
+    data class CharactersListScreen(val id: Int) : Destination()
 }
