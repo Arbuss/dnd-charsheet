@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import java.util.UUID
 
 class RouterImpl : Router, CoroutineScope by CoroutineScope(SupervisorJob() + Dispatchers.IO + CoroutineName("Router")) {
-    private val _destination: MutableStateFlow<Destination> = MutableStateFlow<Destination>(Destination.CampaignScreen)
+    private val _destination: MutableStateFlow<Destination> = MutableStateFlow<Destination>(Destination.CampaignScreen())
     override val destination: StateFlow<Destination> = _destination.asStateFlow()
 
     private val _backAction: MutableStateFlow<UUID?> = MutableStateFlow(null)

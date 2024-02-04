@@ -14,7 +14,7 @@ import dev.olshevski.navigation.reimagined.rememberNavController
 
 @Composable
 fun NavHostScreen(navigationViewModel: NavigationViewModel) {
-    val navController = rememberNavController<Destination>(startDestination = Destination.CampaignScreen)
+    val navController = rememberNavController<Destination>(startDestination = Destination.CampaignScreen())
     val currentDestination by navigationViewModel.destination.collectAsState()
     val backAction by navigationViewModel.backAction.collectAsState()
 
@@ -34,7 +34,7 @@ fun NavHostScreen(navigationViewModel: NavigationViewModel) {
 
     NavHost(navController) { destination ->
         when (destination) {
-            Destination.CampaignScreen -> {
+            is Destination.CampaignScreen -> {
                 CampaignScreen()
             }
 
