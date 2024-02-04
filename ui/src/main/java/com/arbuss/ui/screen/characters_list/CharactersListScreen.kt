@@ -43,7 +43,7 @@ private fun CharactersListItem(id: Int, character: Character, onClick: (Int) -> 
             .fillMaxWidth()
             .padding(vertical = 8.dp, horizontal = 8.dp)
             .clickable { onClick.invoke(id) }
-            .background(Pink80, RoundedCornerShape(8.dp))
+//            .background(RoundedCornerShape(8.dp))
     ) {
         Text(text = "id = $id", Modifier.padding(vertical = 4.dp, horizontal = 4.dp))
         Text(text = "name = ${character.name}", Modifier.padding(vertical = 4.dp, horizontal = 4.dp))

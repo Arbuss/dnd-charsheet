@@ -1,42 +1,27 @@
 package com.arbuss.ui.screen.main
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import com.arbuss.ui.R
 import com.arbuss.ui.navigation.NavHostScreen
-import com.arbuss.ui.navigation.NavigationViewModel
+import com.arbuss.ui.theme.ApplicationTheme
+import com.arbuss.ui.theme.DarkModeColorScheme
+import com.arbuss.ui.theme.LightModeColorScheme
 import org.koin.androidx.compose.koinViewModel
+
+internal val LocalAppTheme = compositionLocalOf<ApplicationTheme> { LightModeColorScheme }
 
 @Composable
 fun MainScreen(
-    viewModel: MainScreenViewModel = koinViewModel(),
-    navigationViewModel: NavigationViewModel = koinViewModel()
+    viewModel: MainScreenViewModel = koinViewModel()
 ) {
-    Scaffold(
-        topBar = { TopBar(navigationViewModel) }
-    ) {
-        Box(Modifier.padding(it)) {
-            NavHostScreen(navigationViewModel)
+    Box(Modifier.fillMaxSize()) {
+        CompositionLocalProvider(LocalAppTheme provides if (isSystemInDarkTheme()) DarkModeColorScheme else LightModeColorScheme) {
+            NavHostScreen()
         }
-    }
-}
-
-@Composable
-private fun TopBar(navigationViewModel: NavigationViewModel) {
-    Row {
-        Image(
-            painterResource(R.drawable.ic_arrow_back),
-            null,
-            Modifier.clickable { navigationViewModel.back() }
-        )
-        Text(text = "Main Screen")
     }
 }

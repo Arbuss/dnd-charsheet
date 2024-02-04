@@ -11,9 +11,10 @@ import dev.olshevski.navigation.reimagined.NavHost
 import dev.olshevski.navigation.reimagined.navigate
 import dev.olshevski.navigation.reimagined.pop
 import dev.olshevski.navigation.reimagined.rememberNavController
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun NavHostScreen(navigationViewModel: NavigationViewModel) {
+fun NavHostScreen(navigationViewModel: NavigationViewModel = koinViewModel()) {
     val navController = rememberNavController<Destination>(startDestination = Destination.CampaignScreen())
     val currentDestination by navigationViewModel.destination.collectAsState()
     val backAction by navigationViewModel.backAction.collectAsState()
