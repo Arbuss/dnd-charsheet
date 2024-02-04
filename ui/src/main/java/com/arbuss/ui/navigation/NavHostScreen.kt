@@ -5,6 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.arbuss.ui.screen.campaign.CampaignScreen
+import com.arbuss.ui.screen.campaign.add.CampaignAddScreen
 import com.arbuss.ui.screen.characters_list.CharactersListScreen
 import dev.olshevski.navigation.reimagined.NavBackHandler
 import dev.olshevski.navigation.reimagined.NavHost
@@ -37,6 +38,10 @@ fun NavHostScreen(navigationViewModel: NavigationViewModel = koinViewModel()) {
         when (destination) {
             is Destination.CampaignScreen -> {
                 CampaignScreen()
+            }
+
+            is Destination.CampaignAddScreen -> {
+                CampaignAddScreen()
             }
 
             is Destination.CharactersListScreen -> {

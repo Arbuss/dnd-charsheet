@@ -25,18 +25,14 @@ class CampaignScreenViewModel(
     val topBarSettings = TopBarSettings(
         stringId = R.string.header_campaigns_screen,
         leftButton = TopBarButtonSettings(R.drawable.ic_arrow_back) { router.back() },
-        rightButton = TopBarButtonSettings(R.drawable.ic_plus) {}
+        rightButton = TopBarButtonSettings(R.drawable.ic_plus) { router.navigate(Destination.CampaignAddScreen()) }
     )
-
-    init {
-        initCampaignList()
-    }
 
     fun onClick(id: Int) {
         router.navigate(Destination.CharactersListScreen(id))
     }
 
-    private fun initCampaignList() {
+    fun updateCampaignList() {
         viewModelScope.launch {
             _campaignList.emit(campaignRepository.getAll())
         }

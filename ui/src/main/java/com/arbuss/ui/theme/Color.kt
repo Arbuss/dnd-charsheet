@@ -81,6 +81,20 @@ object Colors {
             val Tertiary = Color(0xFF626C77)
         }
     }
+
+    object Buttons {
+        object Light {
+            val Primary = Color(0xFF26CD58) // Основной цвет позитивной кнопки.
+            val Secondary = Color(0xFF007CFF) // Второй цвет позитивной кнопки.
+            val Negative = Color(0xFFF95721) // Основной цвет негативной кнопки.
+        }
+
+        object Dark {
+            val Primary = Color(0xFF74DF8B)
+            val Secondary = Color(0xFF45B6FC)
+            val Negative = Color(0xFFFA8A64)
+        }
+    }
 }
 
 

@@ -133,6 +133,12 @@ internal object LightModeColorScheme : ApplicationTheme {
         Secondary = Colors.Icons.Light.Secondary,
         Tertiary = Colors.Icons.Light.Tertiary,
     )
+
+    override val button = ButtonColorScheme(
+        Primary = Colors.Buttons.Light.Primary,
+        Secondary = Colors.Buttons.Light.Secondary,
+        Negative = Colors.Buttons.Light.Negative,
+    )
 }
 
 internal object DarkModeColorScheme : ApplicationTheme {
@@ -171,12 +177,19 @@ internal object DarkModeColorScheme : ApplicationTheme {
         Secondary = Colors.Icons.Dark.Secondary,
         Tertiary = Colors.Icons.Dark.Tertiary,
     )
+
+    override val button = ButtonColorScheme(
+        Primary = Colors.Buttons.Dark.Primary,
+        Secondary = Colors.Buttons.Dark.Secondary,
+        Negative = Colors.Buttons.Dark.Negative,
+    )
 }
 
 interface ApplicationTheme {
     val text: TextColorScheme
     val background: BackgroundColorScheme
     val icon: IconColorScheme
+    val button: ButtonColorScheme
 }
 
 data class TextColorScheme(
@@ -213,4 +226,10 @@ data class IconColorScheme(
     val Primary: Color,
     val Secondary: Color,
     val Tertiary: Color
+)
+
+data class ButtonColorScheme(
+    val Primary: Color,
+    val Secondary: Color,
+    val Negative: Color
 )

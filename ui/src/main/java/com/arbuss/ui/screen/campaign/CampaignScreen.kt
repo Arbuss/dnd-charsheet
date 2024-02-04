@@ -21,6 +21,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun CampaignScreen(viewModel: CampaignScreenViewModel = koinViewModel()) {
     val campaignList by viewModel.campaignList.collectAsState()
+    viewModel.updateCampaignList()
 
     Column(Modifier.fillMaxSize()) {
         TopBar(settings = viewModel.topBarSettings)

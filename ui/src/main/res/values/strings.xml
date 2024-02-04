@@ -1,4 +1,8 @@
 <resources>
     <string name="header_campaigns_screen">Campaigns</string>
+    <string name="header_campaigns_add_screen">New Campaign</string>
     <string name="header_characters_screen">Main Screen</string>
+
+    <string name="campaigns_add_screen_name_label">Campaign Name</string>
+    <string name="campaigns_add_screen_button_save">Save</string>
 </resources>
