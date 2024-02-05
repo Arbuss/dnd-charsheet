@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.arbuss.ui.screen.main.LocalAppTheme
 
 @Composable
-fun Button(
+fun DndButton(
     modifier: Modifier = Modifier,
     text: String, textColor: Color = LocalAppTheme.current.text.Inverted,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(containerColor = LocalAppTheme.current.button.Primary),
