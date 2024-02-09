@@ -1,7 +1,6 @@
 package com.arbuss.data.repository.local
 
 import com.arbuss.data.model.Campaign
-import com.arbuss.data.repository.local.model.CharacterRealm
 import com.arbuss.data.repository.local.model.СampaignRealm
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration

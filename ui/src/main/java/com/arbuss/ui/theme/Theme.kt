@@ -125,7 +125,8 @@ internal object LightModeColorScheme : ApplicationTheme {
         Bar = Colors.Background.Light.Bar,
         Disabled = Colors.Background.Light.Disabled,
         StrokeDisabled = Colors.Background.Light.StrokeDisabled,
-        Lower = Colors.Background.Light.Lower
+        Lower = Colors.Background.Light.Lower,
+        Card = Colors.Background.Light.Card
     )
 
     override val icon = IconColorScheme(
@@ -169,7 +170,8 @@ internal object DarkModeColorScheme : ApplicationTheme {
         Bar = Colors.Background.Dark.Bar,
         Disabled = Colors.Background.Dark.Disabled,
         StrokeDisabled = Colors.Background.Dark.StrokeDisabled,
-        Lower = Colors.Background.Dark.Lower
+        Lower = Colors.Background.Dark.Lower,
+        Card = Colors.Background.Dark.Card
     )
 
     override val icon = IconColorScheme(
@@ -219,7 +221,8 @@ data class BackgroundColorScheme(
     val Bar: Color,
     val Disabled: Color,
     val StrokeDisabled: Color,
-    val Lower: Color
+    val Lower: Color,
+    val Card: Color
 )
 
 data class IconColorScheme(

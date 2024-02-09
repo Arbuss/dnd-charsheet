@@ -49,6 +49,7 @@ object Colors {
             val Disabled = Color(0xFFF8F8FB) // Цвет фона для неактивных инпута, дропдауна, текстареа.
             val StrokeDisabled = Color(0x40BCC3D0) // Цвет обводки фона для неактивных инпута, дропдауна, текстареа.
             val Lower = Color(0xFFF2F3F7) // Альтернативный основной фон темы.
+            val Card = Color(0x19CF396C)
         }
 
         object Dark {
@@ -65,6 +66,7 @@ object Colors {
             val Disabled = Color(0xD9626C77)
             val StrokeDisabled = Color(0xE67F8C99)
             val Lower = Color(0xFF000000)
+            val Card = Color(0xFFCF396C)
         }
     }
 
