@@ -1,11 +1,16 @@
 package com.arbuss.data.repository.local
 
 import com.arbuss.data.model.Campaign
+import com.arbuss.data.repository.local.model.CharacterRealm
 import com.arbuss.data.repository.local.model.СampaignRealm
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.query.max
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 
 internal class CampaignLocalDataSourceRealm : CampaignLocalDataSource {
     private val config = RealmConfiguration.create(schema = setOf(СampaignRealm::class))
@@ -13,6 +18,11 @@ internal class CampaignLocalDataSourceRealm : CampaignLocalDataSource {
 
     override fun getAllCampaign(): List<Campaign> {
         return realm.query<СampaignRealm>().find().toList().map { it.toAppModel() }
+    }
+
+    override fun getAllCampaignObservable(): Flow<List<Campaign>> {
+        return realm.query<СampaignRealm>().find().asFlow().flowOn(Dispatchers.IO)
+            .map { realmResult -> realmResult.list.map { it.toAppModel() } }
     }
 
     override fun addCampaign(campaign: Campaign) {

@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 
 class CharactersListViewModel(
     private val characterRepository: CharacterRepository,
+    private val campaignId: Int,
     private val router: Router
 ) : ViewModel() {
 
@@ -28,12 +29,11 @@ class CharactersListViewModel(
     private val _charactersList: MutableStateFlow<List<Character>> = MutableStateFlow(emptyList())
     val charactersList: StateFlow<List<Character>> = _charactersList.asStateFlow()
 
-    private var campaignId = -1
-
-    fun updateCharactersList(campaignId: Int) {
-        this.campaignId = campaignId
+    init {
         viewModelScope.launch {
-            _charactersList.emit(characterRepository.getAllCharactersFromCampaign(campaignId))
+            characterRepository.getAllCharactersFromCampaignObservable(campaignId).collect {
+                _charactersList.emit(it)
+            }
         }
     }
 

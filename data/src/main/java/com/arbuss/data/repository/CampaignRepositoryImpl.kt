@@ -2,6 +2,7 @@ package com.arbuss.data.repository
 
 import com.arbuss.data.model.Campaign
 import com.arbuss.data.repository.local.CampaignLocalDataSource
+import kotlinx.coroutines.flow.Flow
 
 internal class CampaignRepositoryImpl(
     private val localDataSource: CampaignLocalDataSource
@@ -9,6 +10,10 @@ internal class CampaignRepositoryImpl(
 
     override fun getAll(): List<Campaign> {
         return localDataSource.getAllCampaign()
+    }
+
+    override fun getAllObservable(): Flow<List<Campaign>> {
+        return localDataSource.getAllCampaignObservable()
     }
 
     override fun add(item: Campaign) {

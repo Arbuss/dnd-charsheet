@@ -17,11 +17,11 @@ import androidx.compose.ui.unit.dp
 import com.arbuss.data.model.Character
 import com.arbuss.ui.utils.ui.TopBar
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
-fun CharactersListScreen(campaignId: Int, viewModel: CharactersListViewModel = koinViewModel()) {
+fun CharactersListScreen(campaignId: Int, viewModel: CharactersListViewModel = koinViewModel(parameters = { parametersOf(campaignId) })) {
     val charactersList by viewModel.charactersList.collectAsState()
-    viewModel.updateCharactersList(campaignId)
 
     Column(Modifier.fillMaxSize()) {
         TopBar(settings = viewModel.topBarSettings)

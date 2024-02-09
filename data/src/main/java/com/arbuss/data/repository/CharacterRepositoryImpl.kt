@@ -2,6 +2,7 @@ package com.arbuss.data.repository
 
 import com.arbuss.data.model.Character
 import com.arbuss.data.repository.local.CharacterLocalDataSource
+import kotlinx.coroutines.flow.Flow
 
 internal class CharacterRepositoryImpl(
     private val localDataSource: CharacterLocalDataSource
@@ -9,6 +10,10 @@ internal class CharacterRepositoryImpl(
 
     override fun getAll(): List<Character> {
         return localDataSource.getAllCharacters()
+    }
+
+    override fun getAllCharactersFromCampaignObservable(campaignId: Int): Flow<List<Character>> {
+        return localDataSource.getAllCharactersFromCampaignObservable(campaignId)
     }
 
     override fun add(item: Character) {

@@ -19,6 +19,6 @@ val uiModule = module {
     viewModel { MainScreenViewModel(get<Router>()) }
     viewModel { CampaignScreenViewModel(get<CampaignRepository>(), get<Router>()) }
     viewModel { CampaignAddViewModel(get<CampaignRepository>(), get<Router>()) }
-    viewModel { CharactersListViewModel(get<CharacterRepository>(), get<Router>()) }
+    viewModel { CharactersListViewModel(get<CharacterRepository>(), get(), get<Router>()) }
     viewModel { CharacterAddViewModel(get<CharacterRepository>(), get<Router>()) }
 }

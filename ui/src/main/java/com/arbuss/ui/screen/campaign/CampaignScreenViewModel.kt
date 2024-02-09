@@ -28,13 +28,15 @@ class CampaignScreenViewModel(
         rightButton = TopBarButtonSettings(R.drawable.ic_plus) { router.navigate(Destination.CampaignAddScreen()) }
     )
 
-    fun onClick(id: Int) {
-        router.navigate(Destination.CharactersListScreen(id))
+    init {
+        viewModelScope.launch {
+            campaignRepository.getAllObservable().collect {
+                _campaignList.emit(it)
+            }
+        }
     }
 
-    fun updateCampaignList() {
-        viewModelScope.launch {
-            _campaignList.emit(campaignRepository.getAll())
-        }
+    fun onClick(id: Int) {
+        router.navigate(Destination.CharactersListScreen(id))
     }
 }

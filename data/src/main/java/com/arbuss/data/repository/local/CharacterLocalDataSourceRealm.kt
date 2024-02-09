@@ -6,6 +6,10 @@ import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.query.max
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 
 internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
     private val config = RealmConfiguration.create(schema = setOf(CharacterRealm::class))
@@ -13,6 +17,11 @@ internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
 
     override fun getAllCharacters(): List<Character> {
         return realm.query<CharacterRealm>().find().toList().map { it.toAppModel() }
+    }
+
+    override fun getAllCharactersFromCampaignObservable(campaignId: Int): Flow<List<Character>> {
+        return realm.query<CharacterRealm>("campaignId = $campaignId").find().asFlow().flowOn(Dispatchers.IO)
+            .map { realmResult -> realmResult.list.map { it.toAppModel() } }
     }
 
     override fun addCharacter(character: Character) {
