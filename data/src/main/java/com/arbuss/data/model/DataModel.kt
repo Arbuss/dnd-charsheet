@@ -1,5 +1,7 @@
 package com.arbuss.data.model
 
-interface DataModel {
+import android.os.Parcelable
+
+interface DataModel : Parcelable {
     val id: Int?
 }

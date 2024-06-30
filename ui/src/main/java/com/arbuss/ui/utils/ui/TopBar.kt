@@ -5,9 +5,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -18,10 +20,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.arbuss.ui.R
 import com.arbuss.ui.screen.main.LocalAppTheme
+import com.arbuss.ui.theme.AppTheme
 import com.arbuss.ui.theme.Padding
 import com.arbuss.ui.theme.Shadow
-import com.arbuss.ui.theme.Typography
+import com.arbuss.ui.utils.TopBarButtonSettings
 import com.arbuss.ui.utils.TopBarSettings
 
 @Composable
@@ -35,42 +41,58 @@ internal fun TopBar(settings: TopBarSettings) {
     Row(
         Modifier
             .fillMaxWidth()
-            .background(LocalAppTheme.current.background.PrimaryElevated)
+            .background(AppTheme.background.PrimaryElevated)
             .shadow(Shadow.Low, spotColor = Color.Transparent),
-        horizontalArrangement = Arrangement.Center,
+        horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        settings.leftButton?.let { buttonSettings ->
-            Image(
-                painterResource(buttonSettings.icon),
-                null,
-                Modifier
-                    .padding(Padding.Large)
-                    .align(Alignment.CenterVertically)
-                    .weight(1f)
-                    .clickable(interactionSource, null) { buttonSettings.onClicked.invoke() }
-            )
+        Box(Modifier.size(48.dp)) {
+            settings.leftButton?.let { buttonSettings ->
+                TopBarButton(buttonSettings, interactionSource)
+            }
         }
 
         Text(
             titleText,
             Modifier
                 .align(Alignment.CenterVertically)
-                .weight(4f),
+                .fillMaxWidth(0.8f),
             textAlign = TextAlign.Center,
-            style = Typography.titleLarge
+            style = AppTheme.typography.titleLarge
         )
 
-        settings.rightButton?.let { buttonSettings ->
-            Image(
-                painterResource(buttonSettings.icon),
-                null,
-                Modifier
-                    .padding(Padding.Large)
-                    .align(Alignment.CenterVertically)
-                    .weight(1f)
-                    .clickable(interactionSource, null) { buttonSettings.onClicked.invoke() }
-            )
+        Box(Modifier.size(48.dp)) {
+            settings.rightButton?.let { buttonSettings ->
+                TopBarButton(buttonSettings, interactionSource)
+            }
         }
     }
+}
+
+@Composable
+private fun TopBarButton(
+    buttonSettings: TopBarButtonSettings,
+    interactionSource: MutableInteractionSource
+) {
+    Image(
+        painterResource(buttonSettings.icon),
+        null,
+        Modifier
+            .padding(Padding.Large)
+            .clickable(interactionSource, null) {
+                buttonSettings.onClicked.invoke()
+            }
+    )
+}
+
+@Preview
+@Composable
+private fun TopBarPreview() {
+    val settings = TopBarSettings(
+        stringId = R.string.top_bar_template,
+        additionalString = "Title",
+        leftButton = TopBarButtonSettings(R.drawable.ic_arrow_back) {  }
+    )
+
+    TopBar(settings = settings)
 }

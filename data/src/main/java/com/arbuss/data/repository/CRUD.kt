@@ -7,6 +7,8 @@ interface CRUD<T: DataModel> {
 
     fun add(item: T)
 
+    fun get(id: Int): T?
+
     fun update(item: T)
 
     fun delete(item: T)

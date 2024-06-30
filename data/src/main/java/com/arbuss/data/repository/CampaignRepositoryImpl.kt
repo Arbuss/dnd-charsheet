@@ -16,6 +16,10 @@ internal class CampaignRepositoryImpl(
         return localDataSource.getAllCampaignObservable()
     }
 
+    override fun get(id: Int): Campaign? {
+        return localDataSource.getCampaign(id)
+    }
+
     override fun add(item: Campaign) {
         localDataSource.addCampaign(item)
     }

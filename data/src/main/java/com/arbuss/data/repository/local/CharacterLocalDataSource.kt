@@ -8,6 +8,8 @@ internal interface CharacterLocalDataSource {
 
     fun getAllCharactersFromCampaignObservable(campaignId: Int): Flow<List<Character>>
 
+    fun getCharacter(id: Int): Character?
+
     fun addCharacter(character: Character)
 
     fun updateCharacter(character: Character)

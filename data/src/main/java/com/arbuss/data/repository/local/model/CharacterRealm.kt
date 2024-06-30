@@ -8,4 +8,9 @@ internal class CharacterRealm : RealmObject {
     var id: Int = -1
     var name: String = ""
     var campaignId: Int = -1
+    var race: String = ""
+    var characterClass: String = ""
+    var armorPoint: String = ""
+    var speed: String = ""
+    var initiative: String = ""
 }

@@ -27,7 +27,10 @@ import org.koin.androidx.compose.koinViewModel
 import org.koin.core.parameter.parametersOf
 
 @Composable
-fun CharactersListScreen(campaignId: Int, viewModel: CharactersListViewModel = koinViewModel(parameters = { parametersOf(campaignId) })) {
+fun CharactersListScreen(
+    campaignId: Int,
+    viewModel: CharactersListViewModel = koinViewModel(parameters = { parametersOf(campaignId) })
+) {
     val charactersList by viewModel.charactersList.collectAsState()
 
     Column(Modifier.fillMaxSize()) {
@@ -36,7 +39,7 @@ fun CharactersListScreen(campaignId: Int, viewModel: CharactersListViewModel = k
         LazyColumn {
             items(charactersList) { character ->
                 character.id?.let { id ->
-                    CharactersListItem(id, character) { viewModel.onClick(id) }
+                    CharactersListItem(id, character) { viewModel.onClick(character) }
                 }
             }
         }
@@ -49,13 +52,22 @@ private fun CharactersListItem(id: Int, character: Character, onClick: (Int) -> 
         Modifier
             .fillMaxWidth()
             .padding(vertical = Padding.Medium, horizontal = Padding.Medium)
-            .background(LocalAppTheme.current.background.Card, RoundedCornerShape(RoundedCorner.Medium))
+            .background(
+                LocalAppTheme.current.background.Card,
+                RoundedCornerShape(RoundedCorner.Medium)
+            )
             .shadow(Shadow.Low, spotColor = Color.Transparent)
             .clickable { onClick.invoke(id) }
     ) {
         Column(Modifier.padding(vertical = Padding.Medium, horizontal = Padding.Medium)) {
-            Text(text = "id = $id", Modifier.padding(vertical = Padding.Small, horizontal = Padding.Small))
-            Text(text = "name = ${character.name}", Modifier.padding(vertical = Padding.Small, horizontal = Padding.Small))
+            Text(
+                text = "id = $id",
+                Modifier.padding(vertical = Padding.Small, horizontal = Padding.Small)
+            )
+            Text(
+                text = "name = ${character.name}",
+                Modifier.padding(vertical = Padding.Small, horizontal = Padding.Small)
+            )
         }
     }
 }

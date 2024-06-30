@@ -24,6 +24,10 @@ internal class CampaignLocalDataSourceRealm : CampaignLocalDataSource {
             .map { realmResult -> realmResult.list.map { it.toAppModel() } }
     }
 
+    override fun getCampaign(id: Int): Campaign? {
+        return realm.query<СampaignRealm>().find().find { it.id == id }?.toAppModel()
+    }
+
     override fun addCampaign(campaign: Campaign) {
         if (campaign.id == null) {
             val id = generateId()

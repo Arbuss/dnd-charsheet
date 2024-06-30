@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     implementation(libs.koin.androidx.compose.navigation)
+    debugImplementation(libs.androidx.ui.tooling)
 
     ksp(libs.koin.ksp.compiler)
 

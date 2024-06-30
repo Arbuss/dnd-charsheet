@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.realm)
     alias(libs.plugins.ksp)
+    id(libs.plugins.parcelize.get().pluginId)
 }
 
 android {

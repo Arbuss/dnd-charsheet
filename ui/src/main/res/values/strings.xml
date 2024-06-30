@@ -1,4 +1,6 @@
 <resources>
+    <string name="top_bar_template">Top bar</string>
+
     <string name="header_campaigns_screen">Campaigns</string>
     <string name="header_campaigns_add_screen">New Campaign</string>
     <string name="header_characters_screen">Main Screen</string>
@@ -9,4 +11,11 @@
     <string name="character_add_screen_header">Add Character</string>
     <string name="character_add_screen_name_label">Character Name</string>
     <string name="character_add_screen_button_save">Save</string>
+
+    <string name="character_screen_title_with_name">%1$s</string>
+
+    <string name="character_screen_character_title_info_race">Race: %1$s</string>
+    <string name="character_screen_character_title_info_class">Class: %1$s</string>
+    <string name="character_screen_character_title_info_speed">Speed: %1$s</string>
+    <string name="character_screen_character_title_info_initiative">Initiative: %1$s</string>
 </resources>

@@ -8,6 +8,8 @@ internal interface CampaignLocalDataSource {
 
     fun getAllCampaignObservable(): Flow<List<Campaign>>
 
+    fun getCampaign(id: Int): Campaign?
+
     fun addCampaign(campaign: Campaign)
 
     fun updateCampaign(campaign: Campaign)

@@ -16,6 +16,10 @@ internal class CharacterRepositoryImpl(
         return localDataSource.getAllCharactersFromCampaignObservable(campaignId)
     }
 
+    override fun get(id: Int): Character? {
+        return localDataSource.getCharacter(id)
+    }
+
     override fun add(item: Character) {
         localDataSource.addCharacter(item)
     }

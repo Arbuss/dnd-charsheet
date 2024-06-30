@@ -1,6 +1,7 @@
 package com.arbuss.data.repository.local
 
 import com.arbuss.data.model.Character
+import com.arbuss.data.model.character.CharacterTitleInfo
 import com.arbuss.data.repository.local.model.CharacterRealm
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
@@ -20,8 +21,13 @@ internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
     }
 
     override fun getAllCharactersFromCampaignObservable(campaignId: Int): Flow<List<Character>> {
-        return realm.query<CharacterRealm>("campaignId = $campaignId").find().asFlow().flowOn(Dispatchers.IO)
+        return realm.query<CharacterRealm>("campaignId = $campaignId").find().asFlow()
+            .flowOn(Dispatchers.IO)
             .map { realmResult -> realmResult.list.map { it.toAppModel() } }
+    }
+
+    override fun getCharacter(id: Int): Character? {
+        return realm.query<CharacterRealm>().find().find { it.id == id }?.toAppModel()
     }
 
     override fun addCharacter(character: Character) {
@@ -60,16 +66,30 @@ internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
     }
 
     override fun getAllCharactersFromCampaign(campaignId: Int): List<Character> {
-        return realm.query<CharacterRealm>("campaignId = $campaignId").find().toList().map { it.toAppModel() }
+        return realm.query<CharacterRealm>("campaignId = $campaignId").find().toList()
+            .map { it.toAppModel() }
     }
 
 
-    private fun generateId(): Int = realm.query<CharacterRealm>().max<Int>("id").find()?.plus(1) ?: 0
+    private fun generateId(): Int =
+        realm.query<CharacterRealm>().max<Int>("id").find()?.plus(1) ?: 0
 
-    private fun CharacterRealm.toAppModel(): Character = Character(this.id, this.name, this.campaignId)
+    private fun CharacterRealm.toAppModel(): Character =
+        Character(
+            id,
+            name,
+            CharacterTitleInfo(race, characterClass, armorPoint, speed, initiative),
+            campaignId,
+        )
+
     private fun Character.toRealmModel(id: Int): CharacterRealm = CharacterRealm().apply {
         this.id = id
         this.name = this@toRealmModel.name
         this.campaignId = this@toRealmModel.campaignId
+        race = this@toRealmModel.titleInfo.race
+        characterClass = this@toRealmModel.titleInfo.characterClass
+        armorPoint = this@toRealmModel.titleInfo.armorPoint
+        speed = this@toRealmModel.titleInfo.speed
+        initiative = this@toRealmModel.titleInfo.initiative
     }
 }

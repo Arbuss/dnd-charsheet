@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.arbuss.data.model.Character
+import com.arbuss.data.model.character.CharacterTitleInfo
 import com.arbuss.data.repository.CharacterRepository
 import com.arbuss.ui.R
 import com.arbuss.ui.navigation.Router
@@ -28,9 +29,17 @@ class CharacterAddViewModel(
 
     var campaignId: Int = -1
 
+    var characterTitleInfo = CharacterTitleInfo(
+        race = "Human",
+        characterClass = "Warrior",
+        armorPoint = "14 + 1",
+        speed = "30",
+        initiative = "30"
+    )
+
     fun onSaveClick() {
         if (characterName.isNotBlank()) {
-            characterRepository.add(Character(null, characterName, campaignId))
+            characterRepository.add(Character(null, characterName, characterTitleInfo, campaignId))
             router.back()
         } else {
             isError = true

@@ -7,6 +7,7 @@ import com.arbuss.ui.navigation.Router
 import com.arbuss.ui.navigation.RouterImpl
 import com.arbuss.ui.screen.campaign.CampaignScreenViewModel
 import com.arbuss.ui.screen.campaign.add.CampaignAddViewModel
+import com.arbuss.ui.screen.character.CharacterViewModel
 import com.arbuss.ui.screen.characters_list.CharactersListViewModel
 import com.arbuss.ui.screen.characters_list.add.CharacterAddViewModel
 import com.arbuss.ui.screen.main.MainScreenViewModel
@@ -21,4 +22,5 @@ val uiModule = module {
     viewModel { CampaignAddViewModel(get<CampaignRepository>(), get<Router>()) }
     viewModel { CharactersListViewModel(get<CharacterRepository>(), get(), get<Router>()) }
     viewModel { CharacterAddViewModel(get<CharacterRepository>(), get<Router>()) }
+    viewModel { CharacterViewModel(get<CharacterRepository>(), get<Router>(), get()) }
 }

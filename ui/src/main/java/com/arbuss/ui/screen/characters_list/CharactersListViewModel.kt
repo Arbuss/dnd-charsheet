@@ -23,7 +23,13 @@ class CharactersListViewModel(
     val topBarSettings = TopBarSettings(
         stringId = R.string.character_add_screen_header,
         leftButton = TopBarButtonSettings(R.drawable.ic_arrow_back) { router.back() },
-        rightButton = TopBarButtonSettings(R.drawable.ic_plus) { router.navigate(Destination.CharacterAddScreen(campaignId)) }
+        rightButton = TopBarButtonSettings(R.drawable.ic_plus) {
+            router.navigate(
+                Destination.CharacterAddScreen(
+                    campaignId
+                )
+            )
+        }
     )
 
     private val _charactersList: MutableStateFlow<List<Character>> = MutableStateFlow(emptyList())
@@ -37,7 +43,7 @@ class CharactersListViewModel(
         }
     }
 
-    fun onClick(characterId: Int) {
-
+    fun onClick(character: Character) {
+        router.navigate(Destination.CharacterScreen(character))
     }
 }
