@@ -15,6 +15,7 @@ import com.arbuss.ui.theme.DarkModeColorScheme
 import com.arbuss.ui.theme.LightModeColorScheme
 import org.koin.androidx.compose.koinViewModel
 
+@Deprecated("Old stuff", ReplaceWith("AppTheme", "com.arbuss.ui.theme.AppTheme"))
 internal val LocalAppTheme = compositionLocalOf<ApplicationTheme> { LightModeColorScheme }
 
 @Composable

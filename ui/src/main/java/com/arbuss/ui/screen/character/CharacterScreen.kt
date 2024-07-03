@@ -1,5 +1,6 @@
 package com.arbuss.ui.screen.character
 
+import android.content.res.Configuration
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,15 +19,19 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arbuss.data.model.Character
+import com.arbuss.data.model.character.CharacterExperience
+import com.arbuss.data.model.character.CharacterLevel
 import com.arbuss.data.model.character.CharacterTitleInfo
 import com.arbuss.ui.R
 import com.arbuss.ui.theme.AppTheme
+import com.arbuss.ui.utils.ui.CharacterTitleInfoExpBar
 import com.arbuss.ui.utils.ui.TopBar
 import com.arbuss.ui.utils.ui.bottomElevation
 import org.koin.androidx.compose.koinViewModel
@@ -47,7 +52,11 @@ fun CharacterScreen(
 
 @Composable
 private fun CharacterTitleInfo(info: CharacterTitleInfo) {
-    Box(Modifier.background(color = AppTheme.background.Primary)) {
+    Column(Modifier.background(color = AppTheme.background.Primary)) {
+        Box(Modifier.padding(AppTheme.padding.Small)) {
+            CharacterTitleInfoExpBar(experience = info.experience)
+        }
+
         Row(
             modifier = Modifier
                 .padding(AppTheme.padding.Medium)
@@ -102,20 +111,23 @@ private fun CharacterTitleInfoArmorPoint(armorPoint: String) {
             .size(72.dp)
             .paint(
                 painterResource(id = R.drawable.ic_shield_icon),
-                contentScale = ContentScale.FillBounds
+                contentScale = ContentScale.FillBounds,
+                colorFilter = ColorFilter.tint(AppTheme.icon.Primary)
             ),
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = armorPoint)
+        Text(text = armorPoint, color = AppTheme.text.Primary)
     }
 }
 
 @Composable
 private fun CharacterTitleInfoTextField(@StringRes title: Int, text: String) {
-    Text(stringResource(title, text))
+    Text(stringResource(title, text), color = AppTheme.text.Primary)
 }
 
+
 @Preview
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun CharacterTitleInfoPreview() {
     val data = CharacterTitleInfo(
@@ -123,7 +135,8 @@ private fun CharacterTitleInfoPreview() {
         characterClass = "Warrior",
         armorPoint = "14 + 1",
         speed = "30",
-        initiative = "30"
+        initiative = "30",
+        experience = CharacterExperience(2200, CharacterLevel.LEVEL_3)
     )
 
     CharacterTitleInfo(data)

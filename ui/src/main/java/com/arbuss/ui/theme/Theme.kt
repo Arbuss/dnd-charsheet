@@ -120,6 +120,12 @@ object AppTheme {
 
     val padding: Padding
         @Composable get() = Padding
+
+    val corners: RoundedCorner
+        @Composable get() = RoundedCorner
+
+    val shadow: Shadow
+        @Composable get() = Shadow
 }
 
 internal object LightModeColorScheme : ApplicationTheme {

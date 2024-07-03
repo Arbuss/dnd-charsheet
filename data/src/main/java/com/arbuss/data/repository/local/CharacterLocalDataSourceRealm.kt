@@ -1,6 +1,8 @@
 package com.arbuss.data.repository.local
 
 import com.arbuss.data.model.Character
+import com.arbuss.data.model.character.CharacterExperience
+import com.arbuss.data.model.character.CharacterLevel
 import com.arbuss.data.model.character.CharacterTitleInfo
 import com.arbuss.data.repository.local.model.CharacterRealm
 import io.realm.kotlin.Realm
@@ -78,7 +80,14 @@ internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
         Character(
             id,
             name,
-            CharacterTitleInfo(race, characterClass, armorPoint, speed, initiative),
+            CharacterTitleInfo(
+                race,
+                characterClass,
+                armorPoint,
+                speed,
+                initiative,
+                CharacterExperience(experience, CharacterLevel.fromLevel(level))
+            ),
             campaignId,
         )
 
@@ -91,5 +100,7 @@ internal class CharacterLocalDataSourceRealm : CharacterLocalDataSource {
         armorPoint = this@toRealmModel.titleInfo.armorPoint
         speed = this@toRealmModel.titleInfo.speed
         initiative = this@toRealmModel.titleInfo.initiative
+        experience = this@toRealmModel.titleInfo.experience.value
+        level = this@toRealmModel.titleInfo.experience.level.levelAsInt
     }
 }

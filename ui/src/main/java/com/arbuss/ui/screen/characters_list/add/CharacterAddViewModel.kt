@@ -5,6 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.arbuss.data.model.Character
+import com.arbuss.data.model.character.CharacterExperience
+import com.arbuss.data.model.character.CharacterLevel
 import com.arbuss.data.model.character.CharacterTitleInfo
 import com.arbuss.data.repository.CharacterRepository
 import com.arbuss.ui.R
@@ -34,7 +36,10 @@ class CharacterAddViewModel(
         characterClass = "Warrior",
         armorPoint = "14 + 1",
         speed = "30",
-        initiative = "30"
+        initiative = "30",
+        experience = CharacterExperience(
+            2200, CharacterLevel.LEVEL_3
+        )
     )
 
     fun onSaveClick() {

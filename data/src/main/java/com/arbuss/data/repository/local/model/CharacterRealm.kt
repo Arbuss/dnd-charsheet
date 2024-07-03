@@ -13,4 +13,6 @@ internal class CharacterRealm : RealmObject {
     var armorPoint: String = ""
     var speed: String = ""
     var initiative: String = ""
+    var experience: Int = 0
+    var level: Int = 1
 }

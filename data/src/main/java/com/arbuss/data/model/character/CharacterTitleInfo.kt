@@ -10,4 +10,5 @@ data class CharacterTitleInfo(
     val armorPoint: String,
     val speed: String,
     val initiative: String,
+    val experience: CharacterExperience
 ) : Parcelable
