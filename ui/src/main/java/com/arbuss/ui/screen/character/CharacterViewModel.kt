@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
+@Suppress("UnusedPrivateProperty")
 class CharacterViewModel(
     private val characterRepository: CharacterRepository,
     private val router: Router,

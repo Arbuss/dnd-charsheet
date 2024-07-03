@@ -6,7 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.arbuss.ui.screen.main.LocalAppTheme
+import com.arbuss.ui.theme.AppTheme
 
 @Composable
 fun DndOutlinedTextField(
@@ -15,12 +15,12 @@ fun DndOutlinedTextField(
     label: String,
     isError: Boolean = false,
     colors: TextFieldColors = OutlinedTextFieldDefaults.colors(
-        cursorColor = LocalAppTheme.current.text.Primary,
-        focusedBorderColor = LocalAppTheme.current.background.Stroke,
-        unfocusedBorderColor = LocalAppTheme.current.background.Stroke,
-        errorBorderColor = LocalAppTheme.current.text.Negative,
-        focusedLabelColor = LocalAppTheme.current.text.Positive,
-        errorLabelColor = LocalAppTheme.current.text.Negative
+        cursorColor = AppTheme.text.primary,
+        focusedBorderColor = AppTheme.background.stroke,
+        unfocusedBorderColor = AppTheme.background.stroke,
+        errorBorderColor = AppTheme.text.negative,
+        focusedLabelColor = AppTheme.text.positive,
+        errorLabelColor = AppTheme.text.negative
     ),
     onValueChange: (String) -> Unit
 ) {

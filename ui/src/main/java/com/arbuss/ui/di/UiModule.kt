@@ -8,8 +8,8 @@ import com.arbuss.ui.navigation.RouterImpl
 import com.arbuss.ui.screen.campaign.CampaignScreenViewModel
 import com.arbuss.ui.screen.campaign.add.CampaignAddViewModel
 import com.arbuss.ui.screen.character.CharacterViewModel
-import com.arbuss.ui.screen.characters_list.CharactersListViewModel
-import com.arbuss.ui.screen.characters_list.add.CharacterAddViewModel
+import com.arbuss.ui.screen.characterslist.CharactersListViewModel
+import com.arbuss.ui.screen.characterslist.add.CharacterAddViewModel
 import com.arbuss.ui.screen.main.MainScreenViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

@@ -8,13 +8,16 @@ object Colors {
             val Primary = Color(0xFF1D2023) // Заголовки и основной текст.
             val Secondary = Color(0xFF626C77) // Дополнительный текст.
             val Tertiary =
-                Color(0xFF969FA8) // Третичный текст. Используется только в начертаниях медиум и выше. Исключение — маска в полях (например, ввод телефона и даты).
+                Color(0xFF969FA8) // Третичный текст.
+            // Используется только в начертаниях медиум и выше.
+            // Исключение — маска в полях (например, ввод телефона и даты).
             val Inverted = Color(0xFFFAFAFA) // Текст для тултипа, тоста и снэкбара.
             val Positive = Color(0xFF12B23F) // Текст успешных действий.
             val Negative = Color(0xFFD8400C) // Текст ошибки и негативных действий.
             val PrimaryLink = Color(0xFF0070E5) // Основные ссылки.
             val VisitedLink = Color(0xFF883888) // Посещенные ссылки.
-            val PrimaryLinkInverted = Color(0xFF45B6FC) // Основные ссылки на инвертированном бэкграунде.
+            // Основные ссылки на инвертированном бэкграунде.
+            val PrimaryLinkInverted = Color(0xFF45B6FC)
             val SecondaryLink = Color(0xFF626C77) // Второстепенные ссылки
             val InactiveTabbar = Color(0xFF6E7780) // Цвет текста в неактивном пункте таббара.
         }

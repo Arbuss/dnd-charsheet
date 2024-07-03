@@ -1,4 +1,4 @@
-package com.arbuss.ui.screen.characters_list
+package com.arbuss.ui.screen.characterslist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import com.arbuss.data.model.Character
 import com.arbuss.ui.screen.main.LocalAppTheme
+import com.arbuss.ui.theme.AppTheme
 import com.arbuss.ui.theme.Padding
 import com.arbuss.ui.theme.RoundedCorner
 import com.arbuss.ui.theme.Shadow
@@ -53,7 +54,7 @@ private fun CharactersListItem(id: Int, character: Character, onClick: (Int) -> 
             .fillMaxWidth()
             .padding(vertical = Padding.Medium, horizontal = Padding.Medium)
             .background(
-                LocalAppTheme.current.background.Card,
+                AppTheme.background.card,
                 RoundedCornerShape(RoundedCorner.Medium)
             )
             .shadow(Shadow.Low, spotColor = Color.Transparent)

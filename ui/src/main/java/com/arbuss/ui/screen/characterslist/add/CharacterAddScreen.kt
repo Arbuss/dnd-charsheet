@@ -1,4 +1,4 @@
-package com.arbuss.ui.screen.characters_list.add
+package com.arbuss.ui.screen.characterslist.add
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

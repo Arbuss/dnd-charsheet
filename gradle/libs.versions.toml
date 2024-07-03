@@ -17,6 +17,7 @@ compose-navigation = "1.5.0"
 parcelize = "2.0.0-Beta3"
 serialization = "1.6.3"
 ui-tooling = "1.6.8"
+detekt = "1.23.5"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -50,6 +51,10 @@ koin-androidx-compose-navigation = { group = "io.insert-koin", name = "koin-andr
 realm-base = { group = "io.realm.kotlin", name = "library-base", version.ref = "realm" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
 
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt-rules-libraries = { module = "io.gitlab.arturbosch.detekt:detekt-rules-libraries", version.ref = "detekt" }
+detekt-rules-ruleauthors = { module = "io.gitlab.arturbosch.detekt:detekt-rules-ruleauthors", version.ref = "detekt" }
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -59,3 +64,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 parcelize = { id = "kotlin-parcelize", version.ref = "parcelize" }
 serialization = { id = "kotlinx-serialization", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

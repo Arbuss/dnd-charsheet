@@ -28,15 +28,13 @@ fun CharacterTitleInfoExpBar(experience: CharacterExperience) {
         topEnd = AppTheme.corners.Medium, bottomEnd = AppTheme.corners.Medium
     )
 
-    val isMaxLevel = experience.level.nextLevelAsInt == CharacterLevelConstants.MAX_LEVEL
-
     Row(verticalAlignment = Alignment.CenterVertically) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .height(24.dp)
                 .background(
-                    color = AppTheme.background.Card,
+                    color = AppTheme.background.card,
                     shape = RoundedCornerShape(
                         topStart = AppTheme.corners.Medium,
                         bottomStart = AppTheme.corners.Medium
@@ -46,7 +44,7 @@ fun CharacterTitleInfoExpBar(experience: CharacterExperience) {
             Text(
                 text = "${experience.level.levelAsInt} уровень",
                 textAlign = TextAlign.Center,
-                color = AppTheme.text.Inverted,
+                color = AppTheme.text.inverted,
                 modifier = Modifier
                     .padding(horizontal = AppTheme.padding.Medium)
             )
@@ -57,53 +55,66 @@ fun CharacterTitleInfoExpBar(experience: CharacterExperience) {
                 .height(24.dp)
                 .padding(start = 4.dp)
                 .background(
-                    color = AppTheme.background.Stroke,
+                    color = AppTheme.background.stroke,
                     shape = roundedCornerShape
                 )
         ) {
-            Box(Modifier.fillMaxWidth()) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth(getProgressValue(experience.level.range, experience.value))
-                        .fillMaxHeight()
-                        .background(
-                            color = AppTheme.background.Card,
-                            shape = roundedCornerShape
-                        )
-                ) {}
+            CharacterTitleInfoExpBarFilling(
+                experience = experience,
+                roundedCornerShape = roundedCornerShape
+            )
+        }
+    }
+}
 
-                Box(
-                    contentAlignment = Alignment.Center,
-                    modifier = Modifier
-                        .fillMaxSize()
-                ) {
-                    Text(
-                        text = "${experience.value}/${
-                            if (!isMaxLevel) {
-                                experience.level.maxExp
-                            } else {
-                                ""
-                            }
-                        }",
-                        textAlign = TextAlign.Center,
-                        color = AppTheme.text.Inverted
-                    )
-                }
+@Composable
+private fun CharacterTitleInfoExpBarFilling(
+    experience: CharacterExperience,
+    roundedCornerShape: RoundedCornerShape
+) {
+    val isMaxLevel = experience.level.nextLevelAsInt == CharacterLevelConstants.MAX_LEVEL
 
-                if (!isMaxLevel) {
-                    Box(
-                        contentAlignment = Alignment.CenterEnd,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(horizontal = AppTheme.padding.Medium)
-                    ) {
-                        Text(
-                            text = "${experience.level.nextLevelAsInt}",
-                            textAlign = TextAlign.Center,
-                            color = AppTheme.text.Inverted
-                        )
+    Box(Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(getProgressValue(experience.level.range, experience.value))
+                .fillMaxHeight()
+                .background(
+                    color = AppTheme.background.card,
+                    shape = roundedCornerShape
+                )
+        ) {}
+
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .fillMaxSize()
+        ) {
+            Text(
+                text = "${experience.value}/${
+                    if (!isMaxLevel) {
+                        experience.level.maxExp
+                    } else {
+                        ""
                     }
-                }
+                }",
+                textAlign = TextAlign.Center,
+                color = AppTheme.text.inverted
+            )
+        }
+
+        if (!isMaxLevel) {
+            Box(
+                contentAlignment = Alignment.CenterEnd,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = AppTheme.padding.Medium)
+            ) {
+                Text(
+                    text = "${experience.level.nextLevelAsInt}",
+                    textAlign = TextAlign.Center,
+                    color = AppTheme.text.inverted
+                )
             }
         }
     }
@@ -112,6 +123,7 @@ fun CharacterTitleInfoExpBar(experience: CharacterExperience) {
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
+@Suppress("MagicNumber")
 private fun CharacterTitleInfoExpBarPreview() {
     val experience = CharacterExperience(354_000, CharacterLevel.LEVEL_20)
     CharacterTitleInfoExpBar(experience = experience)

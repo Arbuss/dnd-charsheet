@@ -1,4 +1,4 @@
-package com.arbuss.ui.screen.characters_list
+package com.arbuss.ui.screen.characterslist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

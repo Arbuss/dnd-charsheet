@@ -30,6 +30,8 @@ import com.arbuss.ui.theme.Shadow
 import com.arbuss.ui.utils.TopBarButtonSettings
 import com.arbuss.ui.utils.TopBarSettings
 
+private const val TITLE_TEXT_FRACTION = 0.8f
+
 @Composable
 internal fun TopBar(settings: TopBarSettings) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -41,7 +43,7 @@ internal fun TopBar(settings: TopBarSettings) {
     Row(
         Modifier
             .fillMaxWidth()
-            .background(AppTheme.background.PrimaryElevated)
+            .background(AppTheme.background.primaryElevated)
             .shadow(Shadow.Low, spotColor = Color.Transparent),
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
@@ -56,7 +58,7 @@ internal fun TopBar(settings: TopBarSettings) {
             titleText,
             Modifier
                 .align(Alignment.CenterVertically)
-                .fillMaxWidth(0.8f),
+                .fillMaxWidth(TITLE_TEXT_FRACTION),
             textAlign = TextAlign.Center,
             style = AppTheme.typography.titleLarge
         )

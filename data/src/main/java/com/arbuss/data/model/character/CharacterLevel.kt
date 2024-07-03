@@ -26,13 +26,13 @@ enum class CharacterLevel(val range: IntRange, val proficiencyBonus: Int) {
 
     val levelAsInt: Int = ordinal + 1
 
-    val nextLevelAsInt: Int = if(levelAsInt == CharacterLevelConstants.MAX_LEVEL) {
-        20
+    val nextLevelAsInt: Int = if (levelAsInt == CharacterLevelConstants.MAX_LEVEL) {
+        CharacterLevelConstants.MAX_LEVEL
     } else {
         levelAsInt + 1
     }
 
-    val maxExp: Int = if(levelAsInt == CharacterLevelConstants.MAX_LEVEL) {
+    val maxExp: Int = if (levelAsInt == CharacterLevelConstants.MAX_LEVEL) {
         CharacterLevelConstants.MAX_EXP
     } else {
         range.last + 1
@@ -40,35 +40,37 @@ enum class CharacterLevel(val range: IntRange, val proficiencyBonus: Int) {
 
     companion object {
         fun fromLevel(level: Int): CharacterLevel {
-            val levelRange: IntRange = 1..20
+            val levelRange: IntRange =
+                CharacterLevelConstants.MIN_LEVEL..CharacterLevelConstants.MAX_LEVEL
             if (!levelRange.contains(level)) {
                 throw LevelOutOfBoundsException("level $level out of range($levelRange)")
             }
             return entries[level - 1]
         }
 
+        @Suppress("CyclomaticComplexMethod")
         fun fromExperience(experience: Int): CharacterLevel {
             return when (experience) {
                 in CharacterLevelConstants.LEVEL_1_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_2_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_3_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_4_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_5_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_6_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_7_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_8_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_9_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_10_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_11_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_12_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_13_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_14_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_15_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_16_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_17_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_18_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_19_RANGE -> LEVEL_1
-                in CharacterLevelConstants.LEVEL_20_RANGE -> LEVEL_1
+                in CharacterLevelConstants.LEVEL_2_RANGE -> LEVEL_2
+                in CharacterLevelConstants.LEVEL_3_RANGE -> LEVEL_3
+                in CharacterLevelConstants.LEVEL_4_RANGE -> LEVEL_4
+                in CharacterLevelConstants.LEVEL_5_RANGE -> LEVEL_5
+                in CharacterLevelConstants.LEVEL_6_RANGE -> LEVEL_6
+                in CharacterLevelConstants.LEVEL_7_RANGE -> LEVEL_7
+                in CharacterLevelConstants.LEVEL_8_RANGE -> LEVEL_8
+                in CharacterLevelConstants.LEVEL_9_RANGE -> LEVEL_9
+                in CharacterLevelConstants.LEVEL_10_RANGE -> LEVEL_10
+                in CharacterLevelConstants.LEVEL_11_RANGE -> LEVEL_11
+                in CharacterLevelConstants.LEVEL_12_RANGE -> LEVEL_12
+                in CharacterLevelConstants.LEVEL_13_RANGE -> LEVEL_13
+                in CharacterLevelConstants.LEVEL_14_RANGE -> LEVEL_14
+                in CharacterLevelConstants.LEVEL_15_RANGE -> LEVEL_15
+                in CharacterLevelConstants.LEVEL_16_RANGE -> LEVEL_16
+                in CharacterLevelConstants.LEVEL_17_RANGE -> LEVEL_17
+                in CharacterLevelConstants.LEVEL_18_RANGE -> LEVEL_18
+                in CharacterLevelConstants.LEVEL_19_RANGE -> LEVEL_19
+                in CharacterLevelConstants.LEVEL_20_RANGE -> LEVEL_20
                 else -> {
                     throw LevelOutOfBoundsException(
                         "experience $experience out of " +
@@ -87,6 +89,7 @@ object CharacterLevelConstants {
     const val MAX_EXP = 355_000
     const val MIN_EXP = 0
     const val MAX_LEVEL = 20
+    const val MIN_LEVEL = 1
     internal const val PROFICIENCY_BONUS_1 = 2
     internal const val PROFICIENCY_BONUS_2 = 3
     internal const val PROFICIENCY_BONUS_3 = 4

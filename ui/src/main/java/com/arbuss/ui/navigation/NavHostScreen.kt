@@ -7,8 +7,8 @@ import androidx.compose.runtime.getValue
 import com.arbuss.ui.screen.campaign.CampaignScreen
 import com.arbuss.ui.screen.campaign.add.CampaignAddScreen
 import com.arbuss.ui.screen.character.CharacterScreen
-import com.arbuss.ui.screen.characters_list.CharactersListScreen
-import com.arbuss.ui.screen.characters_list.add.CharacterAddScreen
+import com.arbuss.ui.screen.characterslist.CharactersListScreen
+import com.arbuss.ui.screen.characterslist.add.CharacterAddScreen
 import dev.olshevski.navigation.reimagined.NavBackHandler
 import dev.olshevski.navigation.reimagined.NavHost
 import dev.olshevski.navigation.reimagined.navigate

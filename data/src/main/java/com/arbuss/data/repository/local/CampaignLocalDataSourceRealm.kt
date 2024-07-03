@@ -1,7 +1,7 @@
 package com.arbuss.data.repository.local
 
 import com.arbuss.data.model.Campaign
-import com.arbuss.data.repository.local.model.СampaignRealm
+import com.arbuss.data.repository.local.model.CampaignRealm
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
@@ -12,20 +12,20 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 
 internal class CampaignLocalDataSourceRealm : CampaignLocalDataSource {
-    private val config = RealmConfiguration.create(schema = setOf(СampaignRealm::class))
+    private val config = RealmConfiguration.create(schema = setOf(CampaignRealm::class))
     private val realm: Realm = Realm.open(config)
 
     override fun getAllCampaign(): List<Campaign> {
-        return realm.query<СampaignRealm>().find().toList().map { it.toAppModel() }
+        return realm.query<CampaignRealm>().find().toList().map { it.toAppModel() }
     }
 
     override fun getAllCampaignObservable(): Flow<List<Campaign>> {
-        return realm.query<СampaignRealm>().find().asFlow().flowOn(Dispatchers.IO)
+        return realm.query<CampaignRealm>().find().asFlow().flowOn(Dispatchers.IO)
             .map { realmResult -> realmResult.list.map { it.toAppModel() } }
     }
 
     override fun getCampaign(id: Int): Campaign? {
-        return realm.query<СampaignRealm>().find().find { it.id == id }?.toAppModel()
+        return realm.query<CampaignRealm>().find().find { it.id == id }?.toAppModel()
     }
 
     override fun addCampaign(campaign: Campaign) {
@@ -41,7 +41,7 @@ internal class CampaignLocalDataSourceRealm : CampaignLocalDataSource {
 
     override fun updateCampaign(campaign: Campaign) {
         realm.writeBlocking {
-            val oldcampaign = query<СampaignRealm>().query("id = ${campaign.id}").first().find()
+            val oldcampaign = query<CampaignRealm>().query("id = ${campaign.id}").first().find()
             if (oldcampaign == null) {
                 copyToRealm(campaign.toRealmModel(generateId()))
             } else {
@@ -58,16 +58,16 @@ internal class CampaignLocalDataSourceRealm : CampaignLocalDataSource {
 
     override fun deleteCampaign(id: Int) {
         realm.writeBlocking {
-            val campaignToDelete = query<СampaignRealm>("id = $id").find().first()
+            val campaignToDelete = query<CampaignRealm>("id = $id").find().first()
             delete(campaignToDelete)
         }
     }
 
 
-    private fun generateId(): Int = realm.query<СampaignRealm>().max<Int>("id").find()?.plus(1) ?: 0
+    private fun generateId(): Int = realm.query<CampaignRealm>().max<Int>("id").find()?.plus(1) ?: 0
 
-    private fun СampaignRealm.toAppModel(): Campaign = Campaign(this.id, this.name)
-    private fun Campaign.toRealmModel(id: Int): СampaignRealm = СampaignRealm().apply {
+    private fun CampaignRealm.toAppModel(): Campaign = Campaign(this.id, this.name)
+    private fun Campaign.toRealmModel(id: Int): CampaignRealm = CampaignRealm().apply {
         this.id = id
         this.name = this@toRealmModel.name
     }

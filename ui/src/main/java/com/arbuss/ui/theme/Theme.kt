@@ -130,46 +130,46 @@ object AppTheme {
 
 internal object LightModeColorScheme : ApplicationTheme {
     override val text = TextColorScheme(
-        Primary = Colors.Text.Light.Primary,
-        Secondary = Colors.Text.Light.Secondary,
-        Tertiary = Colors.Text.Light.Tertiary,
-        Inverted = Colors.Text.Light.Inverted,
-        Positive = Colors.Text.Light.Positive,
-        Negative = Colors.Text.Light.Negative,
-        PrimaryLink = Colors.Text.Light.PrimaryLink,
-        VisitedLink = Colors.Text.Light.VisitedLink,
-        PrimaryLinkInverted = Colors.Text.Light.PrimaryLinkInverted,
-        SecondaryLink = Colors.Text.Light.SecondaryLink,
-        InactiveTabbar = Colors.Text.Light.InactiveTabbar
+        primary = Colors.Text.Light.Primary,
+        secondary = Colors.Text.Light.Secondary,
+        tertiary = Colors.Text.Light.Tertiary,
+        inverted = Colors.Text.Light.Inverted,
+        positive = Colors.Text.Light.Positive,
+        negative = Colors.Text.Light.Negative,
+        primaryLink = Colors.Text.Light.PrimaryLink,
+        visitedLink = Colors.Text.Light.VisitedLink,
+        primaryLinkInverted = Colors.Text.Light.PrimaryLinkInverted,
+        secondaryLink = Colors.Text.Light.SecondaryLink,
+        inactiveTabbar = Colors.Text.Light.InactiveTabbar
     )
 
     override val background = BackgroundColorScheme(
-        Primary = Colors.Background.Light.Primary,
-        PrimaryElevated = Colors.Background.Light.PrimaryElevated,
-        Modal = Colors.Background.Light.Modal,
-        Stroke = Colors.Background.Light.Stroke,
-        Secondary = Colors.Background.Light.Secondary,
-        SecondaryElevated = Colors.Background.Light.SecondaryElevated,
-        Overlay = Colors.Background.Light.Overlay,
-        Inverted = Colors.Background.Light.Inverted,
-        Hover = Colors.Background.Light.Hover,
-        Bar = Colors.Background.Light.Bar,
-        Disabled = Colors.Background.Light.Disabled,
-        StrokeDisabled = Colors.Background.Light.StrokeDisabled,
-        Lower = Colors.Background.Light.Lower,
-        Card = Colors.Background.Light.Card
+        primary = Colors.Background.Light.Primary,
+        primaryElevated = Colors.Background.Light.PrimaryElevated,
+        modal = Colors.Background.Light.Modal,
+        stroke = Colors.Background.Light.Stroke,
+        secondary = Colors.Background.Light.Secondary,
+        secondaryElevated = Colors.Background.Light.SecondaryElevated,
+        overlay = Colors.Background.Light.Overlay,
+        inverted = Colors.Background.Light.Inverted,
+        hover = Colors.Background.Light.Hover,
+        bar = Colors.Background.Light.Bar,
+        disabled = Colors.Background.Light.Disabled,
+        strokeDisabled = Colors.Background.Light.StrokeDisabled,
+        lower = Colors.Background.Light.Lower,
+        card = Colors.Background.Light.Card
     )
 
     override val icon = IconColorScheme(
-        Primary = Colors.Icons.Light.Primary,
-        Secondary = Colors.Icons.Light.Secondary,
-        Tertiary = Colors.Icons.Light.Tertiary,
+        primary = Colors.Icons.Light.Primary,
+        secondary = Colors.Icons.Light.Secondary,
+        tertiary = Colors.Icons.Light.Tertiary,
     )
 
     override val button = ButtonColorScheme(
-        Primary = Colors.Buttons.Light.Primary,
-        Secondary = Colors.Buttons.Light.Secondary,
-        Negative = Colors.Buttons.Light.Negative,
+        primary = Colors.Buttons.Light.Primary,
+        secondary = Colors.Buttons.Light.Secondary,
+        negative = Colors.Buttons.Light.Negative,
     )
 
     override val typography = typographyTemplate
@@ -177,46 +177,46 @@ internal object LightModeColorScheme : ApplicationTheme {
 
 internal object DarkModeColorScheme : ApplicationTheme {
     override val text = TextColorScheme(
-        Primary = Colors.Text.Dark.Primary,
-        Secondary = Colors.Text.Dark.Secondary,
-        Tertiary = Colors.Text.Dark.Tertiary,
-        Inverted = Colors.Text.Dark.Inverted,
-        Positive = Colors.Text.Dark.Positive,
-        Negative = Colors.Text.Dark.Negative,
-        PrimaryLink = Colors.Text.Dark.PrimaryLink,
-        VisitedLink = Colors.Text.Dark.VisitedLink,
-        PrimaryLinkInverted = Colors.Text.Dark.PrimaryLinkInverted,
-        SecondaryLink = Colors.Text.Dark.SecondaryLink,
-        InactiveTabbar = Colors.Text.Dark.InactiveTabbar
+        primary = Colors.Text.Dark.Primary,
+        secondary = Colors.Text.Dark.Secondary,
+        tertiary = Colors.Text.Dark.Tertiary,
+        inverted = Colors.Text.Dark.Inverted,
+        positive = Colors.Text.Dark.Positive,
+        negative = Colors.Text.Dark.Negative,
+        primaryLink = Colors.Text.Dark.PrimaryLink,
+        visitedLink = Colors.Text.Dark.VisitedLink,
+        primaryLinkInverted = Colors.Text.Dark.PrimaryLinkInverted,
+        secondaryLink = Colors.Text.Dark.SecondaryLink,
+        inactiveTabbar = Colors.Text.Dark.InactiveTabbar
     )
 
     override val background = BackgroundColorScheme(
-        Primary = Colors.Background.Dark.Primary,
-        PrimaryElevated = Colors.Background.Dark.PrimaryElevated,
-        Modal = Colors.Background.Dark.Modal,
-        Stroke = Colors.Background.Dark.Stroke,
-        Secondary = Colors.Background.Dark.Secondary,
-        SecondaryElevated = Colors.Background.Dark.SecondaryElevated,
-        Overlay = Colors.Background.Dark.Overlay,
-        Inverted = Colors.Background.Dark.Inverted,
-        Hover = Colors.Background.Dark.Hover,
-        Bar = Colors.Background.Dark.Bar,
-        Disabled = Colors.Background.Dark.Disabled,
-        StrokeDisabled = Colors.Background.Dark.StrokeDisabled,
-        Lower = Colors.Background.Dark.Lower,
-        Card = Colors.Background.Dark.Card
+        primary = Colors.Background.Dark.Primary,
+        primaryElevated = Colors.Background.Dark.PrimaryElevated,
+        modal = Colors.Background.Dark.Modal,
+        stroke = Colors.Background.Dark.Stroke,
+        secondary = Colors.Background.Dark.Secondary,
+        secondaryElevated = Colors.Background.Dark.SecondaryElevated,
+        overlay = Colors.Background.Dark.Overlay,
+        inverted = Colors.Background.Dark.Inverted,
+        hover = Colors.Background.Dark.Hover,
+        bar = Colors.Background.Dark.Bar,
+        disabled = Colors.Background.Dark.Disabled,
+        strokeDisabled = Colors.Background.Dark.StrokeDisabled,
+        lower = Colors.Background.Dark.Lower,
+        card = Colors.Background.Dark.Card
     )
 
     override val icon = IconColorScheme(
-        Primary = Colors.Icons.Dark.Primary,
-        Secondary = Colors.Icons.Dark.Secondary,
-        Tertiary = Colors.Icons.Dark.Tertiary,
+        primary = Colors.Icons.Dark.Primary,
+        secondary = Colors.Icons.Dark.Secondary,
+        tertiary = Colors.Icons.Dark.Tertiary,
     )
 
     override val button = ButtonColorScheme(
-        Primary = Colors.Buttons.Dark.Primary,
-        Secondary = Colors.Buttons.Dark.Secondary,
-        Negative = Colors.Buttons.Dark.Negative,
+        primary = Colors.Buttons.Dark.Primary,
+        secondary = Colors.Buttons.Dark.Secondary,
+        negative = Colors.Buttons.Dark.Negative,
     )
 
     override val typography = typographyTemplate
@@ -231,46 +231,46 @@ interface ApplicationTheme {
 }
 
 data class TextColorScheme(
-    val Primary: Color,
-    val Secondary: Color,
-    val Tertiary: Color,
-    val Inverted: Color,
-    val Positive: Color,
-    val Negative: Color,
-    val PrimaryLink: Color,
-    val VisitedLink: Color,
-    val PrimaryLinkInverted: Color,
-    val SecondaryLink: Color,
-    val InactiveTabbar: Color,
+    val primary: Color,
+    val secondary: Color,
+    val tertiary: Color,
+    val inverted: Color,
+    val positive: Color,
+    val negative: Color,
+    val primaryLink: Color,
+    val visitedLink: Color,
+    val primaryLinkInverted: Color,
+    val secondaryLink: Color,
+    val inactiveTabbar: Color,
 )
 
 data class BackgroundColorScheme(
-    val Primary: Color,
-    val PrimaryElevated: Color,
-    val Modal: Color,
-    val Stroke: Color,
-    val Secondary: Color,
-    val SecondaryElevated: Color,
-    val Overlay: Color,
-    val Inverted: Color,
-    val Hover: Color,
-    val Bar: Color,
-    val Disabled: Color,
-    val StrokeDisabled: Color,
-    val Lower: Color,
-    val Card: Color
+    val primary: Color,
+    val primaryElevated: Color,
+    val modal: Color,
+    val stroke: Color,
+    val secondary: Color,
+    val secondaryElevated: Color,
+    val overlay: Color,
+    val inverted: Color,
+    val hover: Color,
+    val bar: Color,
+    val disabled: Color,
+    val strokeDisabled: Color,
+    val lower: Color,
+    val card: Color
 )
 
 data class IconColorScheme(
-    val Primary: Color,
-    val Secondary: Color,
-    val Tertiary: Color
+    val primary: Color,
+    val secondary: Color,
+    val tertiary: Color
 )
 
 data class ButtonColorScheme(
-    val Primary: Color,
-    val Secondary: Color,
-    val Negative: Color
+    val primary: Color,
+    val secondary: Color,
+    val negative: Color
 )
 
 private val typographyTemplate = Typography(

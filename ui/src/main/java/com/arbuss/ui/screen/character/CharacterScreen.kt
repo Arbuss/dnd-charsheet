@@ -52,7 +52,7 @@ fun CharacterScreen(
 
 @Composable
 private fun CharacterTitleInfo(info: CharacterTitleInfo) {
-    Column(Modifier.background(color = AppTheme.background.Primary)) {
+    Column(Modifier.background(color = AppTheme.background.primary)) {
         Box(Modifier.padding(AppTheme.padding.Small)) {
             CharacterTitleInfoExpBar(experience = info.experience)
         }
@@ -112,23 +112,24 @@ private fun CharacterTitleInfoArmorPoint(armorPoint: String) {
             .paint(
                 painterResource(id = R.drawable.ic_shield_icon),
                 contentScale = ContentScale.FillBounds,
-                colorFilter = ColorFilter.tint(AppTheme.icon.Primary)
+                colorFilter = ColorFilter.tint(AppTheme.icon.primary)
             ),
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = armorPoint, color = AppTheme.text.Primary)
+        Text(text = armorPoint, color = AppTheme.text.primary)
     }
 }
 
 @Composable
 private fun CharacterTitleInfoTextField(@StringRes title: Int, text: String) {
-    Text(stringResource(title, text), color = AppTheme.text.Primary)
+    Text(stringResource(title, text), color = AppTheme.text.primary)
 }
 
 
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
+@Suppress("MagicNumber")
 private fun CharacterTitleInfoPreview() {
     val data = CharacterTitleInfo(
         race = "Human",

@@ -10,13 +10,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.arbuss.ui.screen.main.LocalAppTheme
+import com.arbuss.ui.theme.AppTheme
 
 @Composable
 fun DndButton(
     modifier: Modifier = Modifier,
-    text: String, textColor: Color = LocalAppTheme.current.text.Inverted,
-    buttonColors: ButtonColors = ButtonDefaults.buttonColors(containerColor = LocalAppTheme.current.button.Primary),
+    text: String, textColor: Color = AppTheme.text.inverted,
+    buttonColors: ButtonColors = ButtonDefaults.buttonColors(containerColor = AppTheme.button.primary),
     onClick: () -> Unit
 ) {
     val interactionSource = remember { MutableInteractionSource() }

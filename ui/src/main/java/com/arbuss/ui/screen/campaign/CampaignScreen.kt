@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import com.arbuss.data.model.Campaign
-import com.arbuss.ui.screen.main.LocalAppTheme
+import com.arbuss.ui.theme.AppTheme
 import com.arbuss.ui.theme.Padding
 import com.arbuss.ui.theme.RoundedCorner
 import com.arbuss.ui.theme.Shadow
@@ -48,13 +48,21 @@ private fun CampaignListItem(id: Int, campaign: Campaign, onClick: (Int) -> Unit
         Modifier
             .fillMaxWidth()
             .padding(vertical = Padding.Medium, horizontal = Padding.Medium)
-            .background(LocalAppTheme.current.background.Card, RoundedCornerShape(RoundedCorner.Medium))
+            .background(AppTheme.background.card, RoundedCornerShape(RoundedCorner.Medium))
             .shadow(Shadow.Low, spotColor = Color.Transparent)
             .clickable { onClick.invoke(id) }
     ) {
         Column(Modifier.padding(vertical = Padding.Medium, horizontal = Padding.Medium)) {
-            Text(text = "id = $id", Modifier.padding(vertical = Padding.Small, horizontal = Padding.Small))
-            Text(text = "name = ${campaign.name}", Modifier.padding(vertical = Padding.Small, horizontal = Padding.Small))
+            Text(
+                text = "id = $id",
+                modifier = Modifier
+                    .padding(vertical = Padding.Small, horizontal = Padding.Small)
+            )
+            Text(
+                text = "name = ${campaign.name}",
+                modifier = Modifier
+                    .padding(vertical = Padding.Small, horizontal = Padding.Small)
+            )
         }
     }
 }
